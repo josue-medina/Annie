@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Annie Charlotte - Blancanieves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #1A5276; /* Softer, deep elegant blue */
+            --apple-red: #E74C3C; /* Vibrant, friendly red */
+            --metallic-gold: #D4AC0D; /* Rich but soft gold */
+            --soft-gold: #F7DC6F; /* Lighter gold for gradients */
+            --white: #FDFAFA; /* Soft white/cream */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #154360;
+            background-image: radial-gradient(circle, #1A5276 0%, #154360 100%);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulseGold {
+            0% { text-shadow: 0 0 5px rgba(212, 172, 13, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(212, 172, 13, 0.6); }
+            100% { text-shadow: 0 0 5px rgba(212, 172, 13, 0.3); }
+        }
+
+        .invitation-card {
+            background-color: var(--royal-blue);
+            background-image: radial-gradient(circle at top right, #1A5276 0%, #154360 100%);
+            max-width: 500px;
+            width: 100%;
+            border: 6px solid var(--metallic-gold);
+            outline: 2px solid var(--soft-gold);
+            outline-offset: -12px;
+            padding: 50px 25px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            animation: fadeIn 1.2s ease-out;
+            color: var(--white);
+        }
+
+        /* Decorative Corners */
+        .invitation-card::before,
+        .invitation-card::after {
+            content: "✿";
+            position: absolute;
+            color: var(--metallic-gold);
+            font-size: 24px;
+        }
+
+        .invitation-card::before { top: 10px; left: 10px; }
+        .invitation-card::after { bottom: 10px; right: 10px; }
+
+        .header-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--soft-gold);
+            margin-bottom: 10px;
+        }
+
+        .sub-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            width: 80%;
+            max-width: 250px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .confetti-wrapper {
+            position: relative;
+            width: fit-content;
+            margin: 20px auto;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: confetti-fall 4s ease-in-out infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) rotate(360deg); opacity: 0; }
+        }
+
+        .secondary-image {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            margin: 15px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--soft-gold);
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.1;
+            animation: pulseGold 3s infinite;
+        }
+
+        .celebration-info {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .details-container {
+            border-top: 1px solid var(--metallic-gold);
+            border-bottom: 1px solid var(--metallic-gold);
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+
+        .detail-item {
+            margin: 10px 0;
+            color: var(--white);
+        }
+
+        .detail-item strong {
+            display: block;
+            color: var(--soft-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .location-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: var(--apple-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .location-link:hover {
+            background-color: #b30000;
+        }
+
+        .footer-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--metallic-gold);
+            margin-top: 20px;
+        }
+
+        .rsvp {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 400px) {
+            .header-text { font-size: 2rem; }
+            .name { font-size: 2.2rem; }
+            .celebration-info { font-size: 1.2rem; }
+            .invitation-card { padding: 30px 15px; }
+        }
+        /* Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--royal-blue);
+            background-image: radial-gradient(circle, #1A5276 0%, #154360 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1s ease-out, visibility 1s;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #splash-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .splash-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: pulseGold 3s infinite;
+        }
+
+        .splash-apple {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .btn-start {
+            padding: 15px 30px;
+            background-color: var(--apple-red);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen" onclick="startExperience()">
+        <div class="splash-name">Annie Charlotte</div>
+        <div class="splash-apple">🍎</div>
+        <button class="btn-start">Haz clic para iniciar la magia</button>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="sonreir.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <script>
+        function startExperience() {
+            const splash = document.getElementById('splash-screen');
+            const music = document.getElementById('bg-music');
+            
+            // Start music
+            music.play().catch(error => {
+                console.log("Audio playback failed:", error);
+            });
+            
+            // Hide splash screen
+            splash.classList.add('hidden');
+        }
+    </script>
+
+    <div class="invitation-card">
+        <div class="header-text">¡Había una vez!</div>
+        <div class="sub-header">Una pequeña princesa llamada</div>
+        
+        <div class="name">Annie Charlotte</div>
+        
+        <div class="confetti-wrapper">
+            <!-- Red pieces -->
+            <div class="confetti" style="background: var(--apple-red); top: 10%; left: -20px; --x: -30px; --y: 100px; animation-delay: 0s;"></div>
+            <div class="confetti" style="background: var(--apple-red); top: 50%; right: -25px; --x: 40px; --y: -80px; animation-delay: 1.5s;"></div>
+            <!-- Gold pieces -->
+            <div class="confetti" style="background: var(--soft-gold); top: -15px; left: 40%; --x: 20px; --y: -60px; animation-delay: 0.5s;"></div>
+            <div class="confetti" style="background: var(--soft-gold); bottom: 10%; left: -30px; --x: -50px; --y: -40px; animation-delay: 2s;"></div>
+            <!-- White/Snow pieces -->
+            <div class="confetti" style="background: white; top: 30%; right: -35px; --x: 60px; --y: 50px; animation-delay: 1s;"></div>
+            <div class="confetti" style="background: white; top: 70%; left: -40px; --x: -20px; --y: -120px; animation-delay: 2.5s;"></div>
+            <!-- Blue pieces -->
+            <div class="confetti" style="background: #3498db; top: -10px; right: 20%; --x: -40px; --y: -90px; animation-delay: 0.8s;"></div>
+            
+            <img src="b1.jpg" alt="Blancanieves" class="main-image">
+        </div>
+        
+        <div class="celebration-info">
+            Cumple 3 años & <br>
+            Su Presentación
+        </div>
+
+        <div style="margin-bottom: 25px; font-size: 0.95rem; line-height: 1.6; color: var(--white);">
+            <div style="margin-bottom: 10px;">
+                <strong style="color: var(--soft-gold); display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Mis Papás</strong>
+                Santiago Guia Alegre & Karla Chavez
+            </div>
+            <div>
+                <strong style="color: var(--soft-gold); display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Padrinos</strong>
+                Francisco Castro & Michelle Herrejon
+            </div>
+            <img src="b2.png" alt="Annie Charlotte" class="secondary-image">
+        </div>
+
+        <div class="details-container">
+            <div class="detail-item">
+                <strong>Fecha</strong>
+                Domingo, 5 de Julio
+            </div>
+            <div class="detail-item">
+                <strong>Hora</strong>
+                1:00 PM
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <div class="detail-item">
+                    <strong>Ceremonia Religiosa</strong>
+                    Rectoría de San José de la Montaña
+                </div>
+                <a href="https://maps.app.goo.gl/fZt3TUA5DYt1tgEh7" class="location-link" target="_blank" style="margin-bottom: 20px;">Mapa Ceremonia</a>
+            </div>
+
+            <div style="margin-top: 10px; border-top: 1px dashed var(--soft-gold); padding-top: 20px;">
+                <img src="b4.png" alt="Recepción" class="secondary-image" style="max-width: 140px;">
+                <div class="detail-item">
+                    <strong>Recepción</strong>
+                    Salón de Fiestas Jardín Palmas
+                </div>
+                <a href="https://maps.app.goo.gl/fV6am5z9XVu2MDCM7" class="location-link" target="_blank">Mapa Recepción</a>
+            </div>
+        </div>
+
+        <img src="b3.png" alt="Annie Charlotte" class="secondary-image" style="max-width: 120px;">
+        <div class="footer-text">¡Te esperamos!</div>
+        
+        <div class="rsvp">
+            <p style="margin-bottom: 15px;">Favor de confirmar asistencia antes del 28 de Julio</p>
+            <a href="#" class="location-link" style="background-color: var(--royal-blue); padding: 12px 30px;">Confirmar Asistencia</a>
+        </div>
+    </div>
+
+</body>
+</html>
